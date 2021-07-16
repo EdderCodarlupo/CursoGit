@@ -1,0 +1,20 @@
+extends ../include/template
+
+append config
+  - siteName = "Curso de CSS Grid y Pug"
+
+prepend styles
+  style.
+    body{
+      color: red;      
+    }
+
+block hero
+  +hero('Titulos del hero', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.')
+  +button
+
+  +prueba
+
+block content
+  h1 Hola Mundo
+

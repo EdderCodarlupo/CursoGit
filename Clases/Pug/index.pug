@@ -1,0 +1,92 @@
+-
+  let datos_personales = {
+    nombre: "Edder Eduardo",
+    apellido_paterno: "Codarlupo",
+    apellido_materno: "Monge"
+  }
+
+- let edad = 22
+
+- let menu = ['home', 'quienes somos', 'acerca']
+
+-
+  const EDteam = {
+    ceo: "Alvaro",
+    cto: "Alexis",
+    coo: "Beto"
+  }
+
+-
+  let pages = [
+  {
+    title: "Home",
+    url: "index.html",
+    child: [ ]
+  },
+  {
+    title: "Services",
+    url: "services.html",
+    child: 
+      [
+        {
+          title: "Web design",
+          url: "web-design.html"
+        },
+        {
+          title: "SEO",
+          url: "seo.html"
+        }
+      ]
+    },
+    {
+      title: "Contact us",
+      url: "contact.html",
+      child: [ ]
+    }
+  ]
+
+
+
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Repaso General de Pug
+  body
+    <img src="https://e1.radio-capital.io/static/dist/img/download-on-the-app-store-apple.svg" title="App Store" width="105" height="32">
+    h1= datos_personales.nombre
+    p= datos_personales.apellido_paterno
+    p=  `y tengo ${edad} años de edad`
+    
+    if edad >= 18
+      p= `${datos_personales.nombre} es mayor de edad`
+    else
+      p= `${datos_personales.nombre} no es mayor de edad`
+    
+    section.ed-container
+      -for(let i=0; i<=20; i++)
+        article.item
+          p= `Item ${i}`
+
+    nav
+      ul
+        each link in menu
+          li: a(href=`${link.split(' ').join('-')}.html`)= `${link.toUpperCase()}`
+    
+    each valor, llave in EDteam
+      li= `${valor} es el ${llave.toUpperCase()} en EDteam`
+
+
+    //Menu Multinivel
+    nav 
+      ul 
+        each page in pages
+          li
+            a(href=page.url)= page.title
+            if page.child.length > 0
+              ul
+                each sub_page in page.child
+                  li: a(href=sub_page.url)= sub_page.title
+

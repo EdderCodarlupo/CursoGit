@@ -1,0 +1,27 @@
+block config
+  include config
+
+include ../mixins/mixins
+include ../mixins/_card
+
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= `${siteName} - ${currentPage}`
+    block styles
+      link(rel="stylesheet", href="style/style.css", attr)
+  body
+    header
+      .logo enREDados
+      nav
+        include menu
+    block hero
+    
+    main
+    
+    
+    block content
+    block footer
